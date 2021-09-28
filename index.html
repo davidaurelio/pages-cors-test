@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GH Pages CORS test</title>
+</head>
+<body>
+<script>
+{
+  let i = document.createElement("iframe");
+  i.sandbox = "allow-scripts";
+  i.srcdoc = `<!doctype html>
+    <title>Iframe</title>
+    <script src="${new URL("a.js", location.href)}"><\/script>
+    <script src="${new URL("b.js", location.href)}"><\/script>`;
+
+    document.body.appendChild(i);
+}
+</script>
+</body>
+</html>
